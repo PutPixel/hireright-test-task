@@ -41,7 +41,7 @@ public class ApplicationTest extends Assert {
 		//Tasks verbose
 		assertThat(out(), containsString("Characters count on page"));
 		assertThat(out(), containsString("Word(s) occurrence"));
-		assertThat(out(), containsString("Start task 'Sentences’"));
+		assertThat(out(), containsString("Start task 'Sentences with given words'"));
 
 
 		//Content

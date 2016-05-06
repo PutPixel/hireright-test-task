@@ -57,7 +57,7 @@ public class SentencesExtractorTask extends Task {
 
 	@Override
 	public String getTaskName() {
-		return "Sentences’ with given words";
+		return "Sentences with given words";
 	}
 
 }
