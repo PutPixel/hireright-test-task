@@ -19,4 +19,9 @@ public class CharactersCountingTask extends Task {
         return result;
     }
 
+	@Override
+	public String getTaskName() {
+		return "Characters count on page";
+	}
+
 }

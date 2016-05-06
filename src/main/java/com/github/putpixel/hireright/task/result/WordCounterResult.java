@@ -37,7 +37,7 @@ public class WordCounterResult implements TaskResult {
     public void printResult(PrintStream out) {
         out.println("Words count on page:");
         wordToCounter.forEach((key, value) -> {
-            out.println("***" + key + " value: " + value);
+            out.println("***'" + key + "' found  " + value + " times");
         });
     }
 

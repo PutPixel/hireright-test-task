@@ -3,8 +3,9 @@ package com.github.putpixel.hireright;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,28 +53,48 @@ public class Application {
             List<String> blocks = Scraper.scrape(new StringBuilder(html));
             log.endRetrievingContent();
             tasks.forEach((workProcess) -> {
-                log.startTask();
+                log.startTask(workProcess);
                 TaskResult result = workProcess.execute(blocks);
-                log.endTask();
                 result.printResult(args.getOutput());
                 totalResults.forEach(it -> it.combine(result));
+                log.endTask(workProcess);
                 args.getOutput().println();
             });
         }
         args.getOutput().println();
         args.getOutput().println();
-        args.getOutput().println("***Totals***");
-        totalResults.forEach(it -> it.printResult(args.getOutput()));
-        log.endApplication();
+		args.getOutput().println("***Totals***");
+		totalResults.forEach(it -> {
+			it.printResult(args.getOutput());
+			args.getOutput().println();
+		});
+		log.endApplication();
     }
 
-    private StringBuilder retrieveContent(String urlString) throws IOException, URISyntaxException {
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(new URI(urlString).toURL().openStream()))) {
-            while (in.ready()) {
-                sb.append(in.readLine());
-            }
-        }
-        return sb;
-    }
+	private StringBuilder retrieveContent(String urlString) throws IOException, URISyntaxException {
+		URL website = new URL(urlString);
+		int trys = 3;
+		while (trys > 0) {
+			try {
+				trys--;
+				URLConnection connection = website.openConnection();
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+				StringBuilder response = new StringBuilder();
+				String inputLine;
+
+				while ((inputLine = in.readLine()) != null)
+					response.append(inputLine);
+
+				in.close();
+				return response;
+			} catch (IOException e) {
+				if (trys == 0) {
+					throw e;
+				}
+			}
+		}
+
+		throw new RuntimeException("Should not be here");
+	}
 }

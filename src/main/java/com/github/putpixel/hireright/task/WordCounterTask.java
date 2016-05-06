@@ -45,4 +45,9 @@ public class WordCounterTask extends Task {
         return new WordCounterResult();
     }
 
+	@Override
+	public String getTaskName() {
+		return "Word(s) occurrence";
+	}
+
 }

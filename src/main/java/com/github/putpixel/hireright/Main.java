@@ -17,14 +17,11 @@ public class Main {
 
     private static void printUsage() {
         System.out.println(
-                "USAGE: java -jar scraper.jar <url(s)> <word(s)> <flags> <proxy>\n\n" +
+                "USAGE: java -jar scraper.jar <url(s)> <word(s)> <flags>\n\n" +
                         "Flags:\n" +
                         " -w - count number of provided word(s) occurrence on webpage\n" +
                         " -e - extract sentences’ which contain given words\n" +
                         " -c - count number of characters of each web page\n" +
-                        " -v - verbosity flag\n\n" +
-                        "Proxy:\n" +
-                        " -h <value> - proxy host address\n" +
-                        " -p <value> - proxy port\n");
+                        " -v - verbosity flag\n\n");
     }
 }

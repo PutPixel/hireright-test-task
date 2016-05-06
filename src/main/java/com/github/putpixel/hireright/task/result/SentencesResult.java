@@ -42,7 +42,7 @@ public class SentencesResult implements TaskResult {
     public void printResult(PrintStream out) {
         out.println("Found sentences:");
         wordToSentences.forEach((key, values) -> {
-            out.println("***Word: " + key);
+            out.println("***'" + key + "'");
             for (String value : values) {
                 out.println("******: " + value);
             }
