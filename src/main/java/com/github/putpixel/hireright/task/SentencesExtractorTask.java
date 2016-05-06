@@ -1,7 +1,8 @@
 package com.github.putpixel.hireright.task;
 
-import java.util.ArrayList;
+import java.text.BreakIterator;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 import com.github.putpixel.hireright.Arguments;
@@ -35,7 +36,18 @@ public class SentencesExtractorTask extends Task {
     }
 
     private Collection<String> extractAll(String content, String word) {
-        return new ArrayList<>();
+        HashSet<String> result = new HashSet<>();
+        BreakIterator bi = BreakIterator.getSentenceInstance();
+        bi.setText(content);
+        int index = 0;
+        while (bi.next() != BreakIterator.DONE) {
+            String sentence = content.substring(index, bi.current());
+            index = bi.current();
+            if (sentence.contains(word)) {
+                result.add(sentence.trim());
+            }
+        }
+        return result;
     }
 
     @Override
