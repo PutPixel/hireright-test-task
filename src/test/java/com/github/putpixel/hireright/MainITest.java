@@ -17,4 +17,11 @@ public class MainITest {
 		Main.main(cmd);
 	}
 
+	@Test
+	public void cnn() {
+		// Javascript only, nothing can be extracted
+		String[] cmd = { "http://www.cnn.com", "girl,default", "-c", "-w", "-e" };
+		Main.main(cmd);
+	}
+
 }

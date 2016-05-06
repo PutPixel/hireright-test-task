@@ -25,7 +25,6 @@ public class ScraperTest {
         assertEquals("webpage1", result.get(0));
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void invali_html_more_open_tag() {
         String html = "<HTML>\r\n" +
                 "<HEAD>\r\n" +
@@ -36,10 +35,10 @@ public class ScraperTest {
                 "<DIV ALIGN=\"center\"><H1>STARTING . . . </DIV>\r\n" +
                 "</BODY>\r\n" +
                 "</HTML>";
-        Scraper.scrape(new StringBuilder(html));
+        List<String> result = Scraper.scrape(new StringBuilder(html));
+        assertEquals(html, result.get(0));
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void invali_html_more_close_tag() {
         String html = "<HTML>\r\n" +
                 "\r\n" +
@@ -50,7 +49,8 @@ public class ScraperTest {
                 "<DIV ALIGN=\"center\"><H1>STARTING . . . </H1></DIV>\r\n" +
                 "</BODY>\r\n" +
                 "</HTML>";
-        Scraper.scrape(new StringBuilder(html));
+        List<String> result = Scraper.scrape(new StringBuilder(html));
+        assertEquals(html, result.get(0));
     }
 
 }

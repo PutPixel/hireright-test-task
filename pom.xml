@@ -39,6 +39,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
+                 	<outputDirectory>./jar</outputDirectory>
                     <archive>
                         <manifest>
                             <mainClass>com.github.putpixel.hireright.Main</mainClass>
