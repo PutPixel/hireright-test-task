@@ -38,12 +38,6 @@ public final class ArgumentParser {
             case "-e":
                 arguments.setExtractSentences(true);
                 break;
-            case "-h":
-                arguments.setProxyHost(getValue(argument, iterator));
-                break;
-            case "-p":
-                arguments.setProxyPort(getValue(argument, iterator));
-                break;
             default:
                 throw new IllegalArgumentException("Unknown argument: '" + argument + "'");
             }
@@ -68,13 +62,6 @@ public final class ArgumentParser {
         return Arrays.asList(argument.split(WORD_DELIMITERS)).stream()
                 .map(String::trim)
                 .collect(Collectors.toList());
-    }
-
-    private static String getValue(String argument, Iterator<String> iterator) {
-        if (!iterator.hasNext()) {
-            throw new IllegalArgumentException("Argument '" + argument + "' must have a value.");
-        }
-        return iterator.next();
     }
 
     private static boolean isUrl(String resourcePath) {

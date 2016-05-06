@@ -5,98 +5,73 @@ import java.util.List;
 
 public final class Arguments {
 
-    private PrintStream output = System.out;
+	private PrintStream output = System.out;
 
-    private List<String> urls;
+	private List<String> urls;
 
-    private List<String> searchWords;
+	private List<String> searchWords;
 
-    private boolean countWordOccurences;
+	private boolean countWordOccurences;
 
-    private boolean countPageCharacters;
+	private boolean countPageCharacters;
 
-    private boolean extractSentences;
+	private boolean extractSentences;
 
-    private boolean verbose;
+	private boolean verbose;
 
-    private String proxyHost;
+	public PrintStream getOutput() {
+		return output;
+	}
 
-    private String proxyPort;
+	public void setOutput(PrintStream output) {
+		this.output = output;
+	}
 
-    public PrintStream getOutput() {
-        return output;
-    }
+	public List<String> getUrls() {
+		return urls;
+	}
 
-    public void setOutput(PrintStream output) {
-        this.output = output;
-    }
+	public void setUrls(List<String> urls) {
+		this.urls = urls;
+	}
 
-    public List<String> getUrls() {
-        return urls;
-    }
+	public List<String> getSearchWords() {
+		return searchWords;
+	}
 
-    public void setUrls(List<String> urls) {
-        this.urls = urls;
-    }
+	public void setSearchWords(List<String> searchWords) {
+		this.searchWords = searchWords;
+	}
 
-    public List<String> getSearchWords() {
-        return searchWords;
-    }
+	public boolean isCountWordOccurences() {
+		return countWordOccurences;
+	}
 
-    public void setSearchWords(List<String> searchWords) {
-        this.searchWords = searchWords;
-    }
+	public void setCountWordOccurences(boolean countWordOccurences) {
+		this.countWordOccurences = countWordOccurences;
+	}
 
-    public boolean isCountWordOccurences() {
-        return countWordOccurences;
-    }
+	public boolean isCountPageCharacters() {
+		return countPageCharacters;
+	}
 
-    public void setCountWordOccurences(boolean countWordOccurences) {
-        this.countWordOccurences = countWordOccurences;
-    }
+	public void setCountPageCharacters(boolean countPageCharacters) {
+		this.countPageCharacters = countPageCharacters;
+	}
 
-    public boolean isCountPageCharacters() {
-        return countPageCharacters;
-    }
+	public boolean isExtractSentences() {
+		return extractSentences;
+	}
 
-    public void setCountPageCharacters(boolean countPageCharacters) {
-        this.countPageCharacters = countPageCharacters;
-    }
+	public void setExtractSentences(boolean extractSentences) {
+		this.extractSentences = extractSentences;
+	}
 
-    public boolean isExtractSentences() {
-        return extractSentences;
-    }
+	public boolean isVerbose() {
+		return verbose;
+	}
 
-    public void setExtractSentences(boolean extractSentences) {
-        this.extractSentences = extractSentences;
-    }
-
-    public boolean isVerbose() {
-        return verbose;
-    }
-
-    public void setVerbose(boolean verbose) {
-        this.verbose = verbose;
-    }
-
-    public String getProxyHost() {
-        return proxyHost;
-    }
-
-    public void setProxyHost(String proxyHost) {
-        this.proxyHost = proxyHost;
-    }
-
-    public String getProxyPort() {
-        return proxyPort;
-    }
-
-    public void setProxyPort(String proxyPort) {
-        this.proxyPort = proxyPort;
-    }
-
-    public boolean hasProxy() {
-        return proxyHost != null;
-    }
-
+	public void setVerbose(boolean verbose) {
+		this.verbose = verbose;
+	}
 }

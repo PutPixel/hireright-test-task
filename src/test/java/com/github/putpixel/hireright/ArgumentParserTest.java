@@ -38,12 +38,10 @@ public class ArgumentParserTest {
 
     @Test
     public void full_set_of_params() throws Exception {
-        String[] cmd = { "https://www.google.co.uk", "test1", "-v", "-c", "-w", "-e", "-h", "proxy_host", "-p", "proxy_port" };
+        String[] cmd = { "https://www.google.co.uk", "test1", "-v", "-c", "-w", "-e"};
         Arguments args = ArgumentParser.parse(cmd);
         assertEquals("https://www.google.co.uk", args.getUrls().get(0));
         assertEquals("test1", args.getSearchWords().get(0));
-        assertEquals("proxy_host", args.getProxyHost());
-        assertEquals("proxy_port", args.getProxyPort());
         assertTrue(args.isVerbose());
         assertTrue(args.isCountPageCharacters());
         assertTrue(args.isCountWordOccurences());

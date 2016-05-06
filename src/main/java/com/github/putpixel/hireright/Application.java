@@ -27,11 +27,6 @@ public class Application {
     }
 
     public void configure() {
-        if (args.hasProxy()) {
-            System.setProperty("http.proxyHost", args.getProxyHost());
-            System.setProperty("http.proxyPort", args.getProxyPort());
-        }
-
         if (args.isCountPageCharacters()) {
             addTask(new CharactersCountingTask());
         }
