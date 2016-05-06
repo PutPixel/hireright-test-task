@@ -4,16 +4,19 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Arguments arguments = ArgumentParser.parse(args);
-            Application application = new Application(arguments);
-            application.configure();
-            application.launch();
+            launch(ArgumentParser.parse(args));
         } catch (Throwable ex) {
             System.err.format("ERROR: %s\n\n", ex.getMessage());
             printUsage();
             ex.printStackTrace();
         }
     }
+
+    public static void launch(Arguments arguments) throws Exception {
+		Application application = new Application(arguments);
+		application.configure();
+		application.launch();
+	}
 
     private static void printUsage() {
         System.out.println(
