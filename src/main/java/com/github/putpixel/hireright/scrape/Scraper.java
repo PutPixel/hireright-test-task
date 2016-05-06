@@ -47,12 +47,13 @@ public class Scraper {
 	}
 
 	public static List<String> scrape(StringBuilder html) {
+		String original = html.toString();
 		try {
 			return doScrape(html);
 		} catch (Exception e) {
 			System.err.println("Failed to scrape page: " + e.getMessage() + ", will be processed without tag removal");
 			e.printStackTrace();
-			return Collections.singletonList(html.toString());
+			return Collections.singletonList(original);
 		}
 	}
 

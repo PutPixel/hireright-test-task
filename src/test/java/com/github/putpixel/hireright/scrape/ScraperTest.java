@@ -25,6 +25,7 @@ public class ScraperTest {
         assertEquals("webpage1", result.get(0));
     }
 
+    @Test
     public void invali_html_more_open_tag() {
         String html = "<HTML>\r\n" +
                 "<HEAD>\r\n" +
@@ -39,7 +40,8 @@ public class ScraperTest {
         assertEquals(html, result.get(0));
     }
 
-    public void invali_html_more_close_tag() {
+    @Test
+    public void invalid_html_more_close_tag() {
         String html = "<HTML>\r\n" +
                 "\r\n" +
                 "<TITLE>webpage1</TITLE>\r\n" +
@@ -53,4 +55,20 @@ public class ScraperTest {
         assertEquals(html, result.get(0));
     }
 
+    @Test
+    public void invalid_html_inside_tag_deleted_problem() {
+        String html = "<HTML>\r\n" +
+                "<HEAD>\r\n" +
+                "<TITLE>webpage1</TITLE>\r\n" +
+                "</HEAD>\r\n" +
+                "<BODY BGCOLOR=\"FFFFFf\" LINK=\"006666\" ALINK=\"8B4513\" VLINK=\"006666\">\r\n" +
+                "<BR>\r\n" +
+                "<DIV ALIGN=\"center\"><H1>STARTING . . . </H1></DIV>\r\n" +
+                "<DIV ALIGN=\"center\"><H1>STARTING . . . </DIV>\r\n" +
+                "</BODY>\r\n" +
+                "</HTML>";
+        List<String> result = Scraper.scrape(new StringBuilder(html));
+        assertNotNull(result);
+        assertEquals(html, result.get(0));
+    }
 }
