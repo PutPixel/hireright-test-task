@@ -23,7 +23,7 @@ public class Main {
                 "USAGE: java -jar scraper.jar <url(s)> <word(s)> <flags>\n\n" +
                         "Flags:\n" +
                         " -w - count number of provided word(s) occurrence on webpage\n" +
-                        " -e - extract sentences’ which contain given words\n" +
+                        " -e - extract sentences which contain given words\n" +
                         " -c - count number of characters of each web page\n" +
                         " -v - verbosity flag\n\n");
     }

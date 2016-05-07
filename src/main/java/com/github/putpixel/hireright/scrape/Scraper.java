@@ -52,7 +52,6 @@ public class Scraper {
 			return doScrape(html);
 		} catch (Exception e) {
 			System.err.println("Failed to scrape page: " + e.getMessage() + ", will be processed without tag removal");
-			e.printStackTrace();
 			return Collections.singletonList(original);
 		}
 	}
