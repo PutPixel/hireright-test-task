@@ -20,7 +20,7 @@ public class MainITest {
 	@Test
 	public void cnn() {
 		// Javascript only, nothing can be extracted
-		String[] cmd = { "http://www.cnn.com", "girl,default", "-c", "-w", "-e" };
+		String[] cmd = { "http://www.cnn.com", "girl,default", "-c", "-w" };
 		Main.main(cmd);
 	}
 
